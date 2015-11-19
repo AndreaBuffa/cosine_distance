@@ -11,7 +11,8 @@ class UVector{
 	std::map<size_t, T> vectorMap;
 
 public:
-	typedef typename std::map<size_t, T>::const_iterator iterator;
+	typedef T scalarType;
+	typedef typename std::map<size_t, T>::const_iterator v_iter;
 
 	UVector(): start_j(0), size_n(0) {};
 	UVector(const size_t& startFrom, const size_t& size): start_j(startFrom), 
@@ -19,9 +20,9 @@ public:
 
 	size_t getStartIndex() const {return this->start_j;}
 
-	iterator begin() const {return this->vectorMap.begin();}
+	v_iter begin() const {return this->vectorMap.begin();}
 
-	iterator end() const {return this->vectorMap.end();}
+	v_iter end() const {return this->vectorMap.end();}
 
 	void set(const size_t& j, const T vj) {
 		assert(j < this->size_n);
